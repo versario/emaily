@@ -6,9 +6,8 @@ import { connect } from 'react-redux';
 import * as actions from '../actions';
 import Header from './Header';
 import Landing from './Landing';
-
-const Dashboard = () => <h2>Dashboard</h2>
-const SurveyNew = () => <h2>SurveyNew</h2>
+import Dashboard from './Dashboard';
+import SurveyNew from './surveys/SurveyNew';
 
 //Refactor class based component to functional (Hooks) based component
 const App = ( {fetchUser} ) => {
@@ -21,17 +20,14 @@ const App = ( {fetchUser} ) => {
   );
 
   return (
-    <div className="container">
-      {/* <Sky images={{ 0: mailLogo }} how={70} time={40} size={'50px'} /> */}
       <BrowserRouter>
-        <div>
+        <div className="container">
           <Header />
           <Route exact path="/" component={Landing} />
           <Route exact path="/surveys" component={Dashboard} />
           <Route path="/surveys/new" component={SurveyNew} />
         </div>
       </BrowserRouter>
-    </div>
   );
 }
 
